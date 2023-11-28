@@ -1,0 +1,21 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+<class name="pojo.CustomerDetails" table="CustomerInfo">
+<id name="code" column="Customercode"/>
+<property name="name" column="customerName"/>
+<property name="phoneno" column="PhoneNo"/>
+<property name="address" column="Address"/>
+
+<set name="custlist" cascade="all" inverse="true" fetch="select">
+<key>
+<column name="Customercode"/>
+</key>
+<one-to-many class="pojo.CustomerDetails"/>
+</set>
+</class>
+
+</hibernate-mapping>
